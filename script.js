@@ -1,15 +1,9 @@
-// =============================================
-// JANE GATHU PORTFOLIO — script.js
-// =============================================
 
-// LOADER
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('hidden');
   }, 1200);
 });
-
-// CUSTOM CURSOR
 const cursor = document.getElementById('cursor');
 const cursorFollower = document.getElementById('cursorFollower');
 document.addEventListener('mousemove', (e) => {
@@ -30,8 +24,6 @@ document.querySelectorAll('a, button').forEach(el => {
     cursorFollower.style.borderColor = 'rgba(245,166,35,0.4)';
   });
 });
-
-// THEME TOGGLE
 const themeBtn = document.getElementById('themeBtn');
 const themeIcon = themeBtn.querySelector('.theme-icon');
 let isDark = true;
@@ -46,20 +38,14 @@ themeBtn.addEventListener('click', () => {
   themeIcon.textContent = isDark ? '☀' : '🌙';
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
-
-// HAMBURGER MENU
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('navLinks');
 hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
-
-// NAVBAR SCROLL
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   navbar.style.padding = window.scrollY > 50 ? '12px 0' : '18px 0';
 });
-
-// REVEAL ON SCROLL
 const reveals = document.querySelectorAll('.reveal');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -70,8 +56,6 @@ const revealObserver = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 reveals.forEach(el => revealObserver.observe(el));
-
-// ANIMATED COUNTERS
 function animateCounter(el, target, duration = 1500) {
   let start = 0;
   const step = target / (duration / 16);
@@ -91,8 +75,6 @@ const counterObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 const heroStats = document.querySelector('.hero-stats');
 if (heroStats) counterObserver.observe(heroStats);
-
-// SKILL BARS
 const skillObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -105,8 +87,6 @@ const skillObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 const skillsGrid = document.querySelector('.skills-grid');
 if (skillsGrid) skillObserver.observe(skillsGrid);
-
-// CONTACT FORM (Formspree)
 const contactForm = document.getElementById('contactForm');
 const feedback = document.getElementById('formFeedback');
 if (contactForm) {
@@ -138,16 +118,12 @@ if (contactForm) {
   });
 }
 
-// SMOOTH SCROLL
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const target = document.querySelector(a.getAttribute('href'));
     if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
-```
 
----
 
-**Your folder should look like this:**
-```
+
